@@ -1,29 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Pedometer } from 'expo-sensors';
+import React from 'react';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
-export default function StepCounterScreen() {
-  const [isPedometerAvailable, setIsPedometerAvailable] = useState('checking');
-  const [stepCount, setStepCount] = useState(0);
-
-  useEffect(() => {
-    Pedometer.isAvailableAsync().then(
-      (result) => setIsPedometerAvailable(result ? 'available' : 'unavailable'),
-      (error) => setIsPedometerAvailable('error')
-    );
-
-    const subscription = Pedometer.watchStepCount((result) => {
-      setStepCount(result.steps);
+export default function HomeScreen({ navigation }) {
+  const resetToHome = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home' }],
     });
-
-    return () => subscription && subscription.remove();
-  }, []);
+  };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Step Counter</Text>
-      <Text>Steps Taken: {stepCount}</Text>
-      <Text>Pedometer is {isPedometerAvailable}</Text>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => navigation.navigate('StepCounter')}
+      >
+        <Text style={styles.buttonText}>Open Step Counter</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity 
+        style={[styles.button, {backgroundColor: '#9C27B0', marginTop: 20}]}
+        onPress={() => navigation.navigate('Analytics')}
+      >
+        <Text style={styles.buttonText}>View Analytics</Text>
+      </TouchableOpacity>
+      
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -31,12 +34,36 @@ export default function StepCounterScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#fff', // Blank white background
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  title: {
-    fontSize: 24,
+  button: {
+    backgroundColor: '#4CAF50',
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    borderRadius: 8,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  homeButton: {
+    backgroundColor: '#2196F3',
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    borderRadius: 8,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    marginTop: 20,
+  },
+  buttonText: {
+    color: 'white',
     fontWeight: 'bold',
-    marginBottom: 20,
+    fontSize: 18,
   },
 });

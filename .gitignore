@@ -1,3 +1,39 @@
 # Expo generated native folders
 /android
 /ios
+
+# Dependencies
+node_modules/
+.expo/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Android/iOS build folders
+/android/app/build/
+/ios/build/
+/ios/Pods/
+
+# Temporary files
+*.log

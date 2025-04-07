@@ -23,7 +23,11 @@ export default function App() {
         <Stack.Screen name="Daily Summary" component={DailySummaryScreen} />
         <Stack.Screen name="Calendar" component={CalendarScreen} />
         <Stack.Screen name="Calorie Goal Calculator" component={CalorieGoalCalculatorScreen} />
-        <Stack.Screen name="Analytics" component={AnalyticsScreen} />
+        <Stack.Screen 
+          name="Analytics" 
+          component={AnalyticsScreen} 
+          options={{ title: 'Analytics' }}
+        />
         <Stack.Screen name="Add Steps" component={AddStepsScreen} />
         <Stack.Screen name="Recent Activity" component={RecentActivityScreen} />
       </Stack.Navigator>

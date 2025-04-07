@@ -1,6 +1,30 @@
-# Step Counter Application
+# CoachCal
 
-This is a simple step counter application built with React and TypeScript. The application allows users to track their daily step count, providing functionality to increment and reset the count.
+A fitness tracking and coaching app built with React Native and Expo.
+
+## Features
+
+- Step counter with daily goals
+- Activity analytics with beautiful charts
+- Progress tracking
+- Customizable workout plans (coming soon)
+
+## Tech Stack
+
+- React Native
+- Expo
+- React Navigation
+- Gifted Charts for data visualization
+- Linear Gradient for modern UI
+- Firebase for backend (coming soon)
+
+## Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/coachcal.git
+cd coachcal
+```
 
 ## Project Structure
 
